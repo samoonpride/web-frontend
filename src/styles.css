@@ -10,7 +10,7 @@
   }
 
   .input {
-    @apply bg-[#E4F2E7] w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#2D3E40] sm:text-sm sm:leading-6;
+    @apply bg-[#E4F2E7] w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#2D3E40] sm:text-sm sm:leading-6 disabled:bg-[#c1cbc4] disabled:ring-[#8b9993] read-only:bg-[#c1cbc4] read-only:ring-[#8b9993];
   }
 
   .primary-button {
