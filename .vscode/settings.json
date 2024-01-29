@@ -1,3 +1,4 @@
 {
   "css.lint.unknownAtRules": "ignore",
+  "workbench.iconTheme": "material-icon-theme",
 }

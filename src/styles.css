@@ -3,3 +3,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .label {
+    @apply text-sm font-medium leading-6 text-gray-900;
+  }
+
+  .input {
+    @apply bg-[#E4F2E7] w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#2D3E40] sm:text-sm sm:leading-6;
+  }
+
+  .primary-button {
+    @apply w-full text-white bg-[#537478] hover:bg-[#384e50] focus:ring-1 focus:ring-[#2D3E40] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none;
+  }
+
+  .a {
+    @apply font-semibold text-[#387373] hover:text-[#2e5e5e] underline;
+  }
+
+  .helper-border {
+    @apply bg-[#97A6A0] bg-opacity-50 rounded-lg px-5 py-3;
+  }
+
+  .helper-text {
+    @apply mt-1 text-sm text-gray-700;
+  }
+
+  .form-border {
+    @apply bg-[#97A6A0] rounded-lg px-5 py-3 bg-opacity-70;
+  }
+
+}
+
+.required:after {
+  content:" *";
+  color: red;
+}
