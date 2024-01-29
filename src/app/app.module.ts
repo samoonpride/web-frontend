@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ChangePasswordPageComponent } from './change-password-page/change-password-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { SuccessfullyCreatedAccountComponent } from './successfully-created-account/successfully-created-account.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
     LoginPageComponent,
     ChangePasswordPageComponent,
     FooterComponent,
+    CreateAccountComponent,
+    SuccessfullyCreatedAccountComponent,
   ],
   imports: [
     BrowserModule,
