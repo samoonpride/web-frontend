@@ -33,6 +33,14 @@
     @apply bg-[#97A6A0] rounded-lg px-5 py-3 bg-opacity-70;
   }
 
+  .alternative-button {
+    @apply px-2 text-sm font-medium text-gray-900 focus:outline-none bg-opacity-30 bg-[#537478] rounded-lg border border-[#537478] hover:bg-opacity-50 focus:z-10 focus:ring-1 focus:ring-[#2D3E40] focus:ring-opacity-20;
+  }
+
+  .label-helper-text {
+    @apply mt-0 text-xs text-gray-700 helper-text;
+  }
+
 }
 
 .required:after {
