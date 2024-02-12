@@ -8,6 +8,8 @@ import { ChangePasswordPageComponent } from './change-password-page/change-passw
 import { FooterComponent } from './footer/footer.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { SuccessfullyCreatedAccountComponent } from './successfully-created-account/successfully-created-account.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { SuccessfullyCreatedAccountComponent } from './successfully-created-acco
     FooterComponent,
     CreateAccountComponent,
     SuccessfullyCreatedAccountComponent,
+    NavbarComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

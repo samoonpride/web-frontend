@@ -13,6 +13,10 @@
     @apply bg-[#E4F2E7] w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#2D3E40] sm:text-sm sm:leading-6 disabled:bg-[#c1cbc4] disabled:ring-[#8b9993] read-only:bg-[#c1cbc4] read-only:ring-[#8b9993];
   }
 
+  .select {
+    @apply bg-[#E4F2E7] w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#2D3E40] sm:text-sm sm:leading-6 disabled:bg-[#c1cbc4] disabled:ring-[#8b9993];
+  }
+
   .primary-button {
     @apply w-full text-white bg-[#537478] hover:bg-[#384e50] focus:ring-1 focus:ring-[#2D3E40] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none;
   }
@@ -35,6 +39,10 @@
 
   .alternative-button {
     @apply px-2 text-sm font-medium text-gray-900 focus:outline-none bg-opacity-30 bg-[#537478] rounded-lg border border-[#537478] hover:bg-opacity-50 focus:z-10 focus:ring-1 focus:ring-[#2D3E40] focus:ring-opacity-20;
+  }
+
+  .destructive-button {
+    @apply w-full text-white bg-red-600 hover:bg-red-700 focus:ring-1 focus:ring-[#2D3E40] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none;
   }
 
   .label-helper-text {
