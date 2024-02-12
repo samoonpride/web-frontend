@@ -10,6 +10,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { SuccessfullyCreatedAccountComponent } from './successfully-created-account/successfully-created-account.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
+import { IssuesPageComponent } from './issues-page/issues-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UsersComponent } from './users/users.component';
     SuccessfullyCreatedAccountComponent,
     NavbarComponent,
     UsersComponent,
+    IssuesPageComponent,
   ],
   imports: [
     BrowserModule,
