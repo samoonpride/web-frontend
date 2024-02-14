@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import { IssuesPageComponent } from './issues-page/issues-page.component';
 import { IssueDetailModalComponent } from './issue-detail-modal/issue-detail-modal.component';
+import { IssueCreateModalComponent } from './issue-create-modal/issue-create-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { IssueDetailModalComponent } from './issue-detail-modal/issue-detail-mod
     UsersComponent,
     IssuesPageComponent,
     IssueDetailModalComponent,
+    IssueCreateModalComponent,
   ],
   imports: [
     BrowserModule,
