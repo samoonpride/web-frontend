@@ -11,6 +11,7 @@ import { SuccessfullyCreatedAccountComponent } from './successfully-created-acco
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import { IssuesPageComponent } from './issues-page/issues-page.component';
+import { IssueDetailModalComponent } from './issue-detail-modal/issue-detail-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { IssuesPageComponent } from './issues-page/issues-page.component';
     NavbarComponent,
     UsersComponent,
     IssuesPageComponent,
+    IssueDetailModalComponent,
   ],
   imports: [
     BrowserModule,

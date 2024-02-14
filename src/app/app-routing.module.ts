@@ -31,7 +31,11 @@ const routes: Routes = [
   {
     path: "issues",
     component: IssuesPageComponent,
-  }
+  },
+  {
+    path: "**",
+    redirectTo: "issues"
+  },
 ];
 
 @NgModule({

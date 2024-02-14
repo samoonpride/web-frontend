@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +6,5 @@ import { initFlowbite } from 'flowbite';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  ngOnInit(): void {
-    initFlowbite();
-  }
+
 }
