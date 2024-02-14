@@ -5,6 +5,7 @@ import { ChangePasswordPageComponent } from './change-password-page/change-passw
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { SuccessfullyCreatedAccountComponent } from './successfully-created-account/successfully-created-account.component';
 import { UsersComponent } from './users/users.component';
+import { IssuesPageComponent } from './issues-page/issues-page.component';
 
 const routes: Routes = [
   {
@@ -25,8 +26,16 @@ const routes: Routes = [
   },
   {
     path: "users",
-    component: UsersComponent
-  }
+    component: UsersComponent,
+  },
+  {
+    path: "issues",
+    component: IssuesPageComponent,
+  },
+  {
+    path: "**",
+    redirectTo: "issues"
+  },
 ];
 
 @NgModule({

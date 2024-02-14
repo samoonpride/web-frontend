@@ -10,6 +10,9 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { SuccessfullyCreatedAccountComponent } from './successfully-created-account/successfully-created-account.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
+import { IssuesPageComponent } from './issues-page/issues-page.component';
+import { IssueDetailModalComponent } from './issue-detail-modal/issue-detail-modal.component';
+import { IssueCreateModalComponent } from './issue-create-modal/issue-create-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { UsersComponent } from './users/users.component';
     SuccessfullyCreatedAccountComponent,
     NavbarComponent,
     UsersComponent,
+    IssuesPageComponent,
+    IssueDetailModalComponent,
+    IssueCreateModalComponent,
   ],
   imports: [
     BrowserModule,
