@@ -13,6 +13,8 @@ import { UsersComponent } from './users/users.component';
 import { IssuesPageComponent } from './issues-page/issues-page.component';
 import { IssueDetailModalComponent } from './issue-detail-modal/issue-detail-modal.component';
 import { IssueCreateModalComponent } from './issue-create-modal/issue-create-modal.component';
+import { IssueCreateMapComponent } from './leaflet-map/issue-create-map.component';
+import { IssueDetailMapComponent } from './leaflet-map/issue-detail-map.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { IssueCreateModalComponent } from './issue-create-modal/issue-create-mod
     IssuesPageComponent,
     IssueDetailModalComponent,
     IssueCreateModalComponent,
+    IssueCreateMapComponent,
+    IssueDetailMapComponent,
   ],
   imports: [
     BrowserModule,

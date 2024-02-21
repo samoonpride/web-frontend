@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-issue-create-modal',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./issue-create-modal.component.css']
 })
 export class IssueCreateModalComponent {
-
+  logMarker(location: number[]) {
+    console.log(location);
+  }
 }
