@@ -4,11 +4,11 @@
     <span>Sign in to Issue Management System</span>
   </div>
 
-  <form class="space-y-3 form-border" action="#" method="POST">
+  <form #form="ngForm" class="space-y-3 form-border" (ngSubmit)="signIn()">
     <div>
       <label for="username" class="label required">Username</label>
       <div class="mt-2">
-        <input id="username" name="username" type="text" autocomplete="username" required class="input">
+        <input id="username" name="username" [(ngModel)]="user.username" type="text" autocomplete="username" required class="input">
       </div>
     </div>
 
@@ -20,13 +20,17 @@
         </div>
       </div>
       <div class="mt-2">
-        <input id="password" name="password" type="password" autocomplete="current-password" required class="input">
+        <input id="password" name="password" [(ngModel)]="user.password" type="password" autocomplete="current-password" required class="input">
       </div>
     </div>
 
     <div>
       <button type="submit" class="primary-button">Sign in</button>
     </div>
+
+    <p [hidden]="isAlertHidden" class="alert">
+      {{alert}}
+    </p>
   </form>
 
   <div class="mt-4 helper-border">

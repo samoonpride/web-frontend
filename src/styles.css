@@ -49,6 +49,10 @@
     @apply mt-0 text-xs text-gray-700 helper-text;
   }
 
+  .alert {
+    @apply text-sm text-center text-red-700;
+  }
+
 }
 
 .required:after {
