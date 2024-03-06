@@ -32,7 +32,9 @@ export class LoginPageComponent {
       next: (userTokenDto) => {
         this.storageService.saveToken(userTokenDto.token);
         this.isAlertHidden = true;
-        this.router.navigateByUrl("/issues");
+        this.router.navigateByUrl("/issues").then(() => {
+          window.location.reload();
+        });
       },
       error: (err: HttpErrorResponse) => {
         this.isAlertHidden = false;

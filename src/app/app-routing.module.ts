@@ -6,7 +6,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
 import { SuccessfullyCreatedAccountComponent } from './components/successfully-created-account/successfully-created-account.component';
 import { UsersComponent } from './components/users/users.component';
 import { IssuesPageComponent } from './components/issues-page/issues-page.component';
-import { LoggedInAuthGuard, nonLoggingInAuthGuard } from './guards/auth.guard';
+import { LoggedInAuthGuard, nonLoggingInAuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -38,6 +38,9 @@ const routes: Routes = [
       {
         path: "account/create/success",
         component: SuccessfullyCreatedAccountComponent,
+        data: {
+          
+        }
       },
       {
         path: "users",

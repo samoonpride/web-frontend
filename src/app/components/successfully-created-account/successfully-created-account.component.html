@@ -18,14 +18,14 @@
     <div>
       <label for="username" class="label required">Username</label>
       <div>
-        <input id="username" name="username" type="text" required class="input" readonly>
+        <input id="username" name="username" type="text" required class="input" [value]="newStaff?.username" readonly>
       </div>
     </div>
 
     <div>
       <label for="password" class="label required">Generated Password</label>
       <div>
-        <input id="password" name="password" type="text" required class="input" readonly>
+        <input id="password" name="password" type="text" required class="input" [value]="newStaff?.password" readonly>
       </div>
     </div>
   </form>
@@ -44,7 +44,7 @@
   </div>
 
   <div class="flex m-auto mt-10">
-    <button type="submit" class="w-64 m-0 mx-auto primary-button">Return to dashboard</button>
+    <button type="submit" class="w-64 m-0 mx-auto primary-button" (click)="onReturnToDashboardHandle()">Return to dashboard</button>
   </div>
 
 </div>

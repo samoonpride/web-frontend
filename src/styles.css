@@ -38,7 +38,7 @@
   }
 
   .alternative-button {
-    @apply px-2 text-sm font-medium text-gray-900 focus:outline-none bg-opacity-30 bg-[#537478] rounded-lg border border-[#537478] hover:bg-opacity-50 focus:z-10 focus:ring-1 focus:ring-[#2D3E40] focus:ring-opacity-20;
+    @apply px-2 text-sm font-medium text-gray-900 focus:outline-none bg-opacity-30 bg-[#537478] rounded-lg border border-[#537478] hover:bg-opacity-50 focus:z-10 focus:ring-1 focus:ring-[#2D3E40] focus:ring-opacity-20 disabled:opacity-60 disabled:hover:bg-opacity-30 disabled:border-0;
   }
 
   .destructive-button {

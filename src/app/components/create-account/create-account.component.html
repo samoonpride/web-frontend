@@ -8,7 +8,7 @@
     <div>
       <label for="role" class="label required">Role</label>
       <div class="mt-2">
-        <select id="role" class="select">
+        <select id="role" class="select" disabled>
           <option>Staff</option>
           <option>Operator</option>
         </select>
@@ -21,15 +21,19 @@
         This is the username that user will have to use to sign in to this website.
       </p>
       <div class="flex mt-2 space-x-1">
-        <input id="username" name="username" type="text" required class="input">
-        <button type="button" class="alternative-button">
-          <img src="assets/dice.svg" class="w-7" />
+        <input id="username" name="username" type="text" required class="input" [(ngModel)]="username">
+        <button type="button" class="alternative-button" disabled>
+          <img src="assets/dice.svg" class="w-7 opacity-45"/>
         </button>
       </div>
     </div>
 
+    <p [hidden]="isAlertHidden" class="alert">
+      {{alert}}
+    </p>
+
     <div>
-      <button type="submit" class="primary-button">Create</button>
+      <button type="submit" class="primary-button" (click)="onCreateHandle()">Create</button>
     </div>
   </form>
 
