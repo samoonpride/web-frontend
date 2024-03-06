@@ -1,0 +1,61 @@
+<div>
+  <div class="flex">
+    <span class="mx-auto mt-10 text-3xl font-semibold">User List</span>
+  </div>
+
+  <div class="flex flex-wrap items-center justify-between w-3/4 py-4 m-auto space-y-4 flex-column md:flex-row md:space-y-0">
+    <div class="relative">
+        <div class="absolute inset-y-0 flex items-center pointer-events-none rtl:inset-r-0 start-0 ps-3">
+            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+        </div>
+        <input type="text" [(ngModel)]="userSearch" (keyup)="onUserSearchChange()" id="table-search-users" class="px-12 input" placeholder="Search for users">
+    </div>
+    <div class="grow"></div>
+    <button class="uppercase w-28 primary-button" (click)="onCreateHandle()">create</button>
+  </div>
+
+  <hr>
+
+  <div class="relative w-3/4 m-auto overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-700 rtl:text-right">
+        <thead class="text-xs text-gray-700 uppercase">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Username
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Role
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let staff of queriedStaffs;" class="border-b">
+                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
+                    <div class="bg-gray-800 rounded-full">
+                      <svg class="w-10 h-10 p-1 text-[#93BFB7]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+                      </svg>
+                    </div>
+                    <div class="ps-3">
+                        <div class="text-base font-semibold">{{staff.username}}</div>
+                    </div>
+                </th>
+                <td class="px-6 py-4">
+                    {{staff.role}}
+                </td>
+                <td class="px-6 py-4">
+                  <div *ngIf="staff.id !== this.currentStaff?.id">
+                    <a data-modal-target="removeAccountModal" data-modal-show="removeAccountModal" (click)="setSelectedStaff(staff)" class="font-medium text-red-600 hover:underline hover:cursor-pointer">DELETE</a>
+                    <app-user-delete-modal [account]="selectedStaff"></app-user-delete-modal>
+                  </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

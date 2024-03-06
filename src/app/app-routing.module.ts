@@ -1,36 +1,56 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { ChangePasswordPageComponent } from './change-password-page/change-password-page.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
-import { SuccessfullyCreatedAccountComponent } from './successfully-created-account/successfully-created-account.component';
-import { UsersComponent } from './users/users.component';
-import { IssuesPageComponent } from './issues-page/issues-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { ChangePasswordPageComponent } from './components/change-password-page/change-password-page.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { SuccessfullyCreatedAccountComponent } from './components/successfully-created-account/successfully-created-account.component';
+import { UsersComponent } from './components/users/users.component';
+import { IssuesPageComponent } from './components/issues-page/issues-page.component';
+import { LoggedInAuthGuard, nonLoggingInAuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: "login",
     component: LoginPageComponent,
+    canActivate: [
+      LoggedInAuthGuard
+    ]
   },
   {
-    path: "password/change",
-    component: ChangePasswordPageComponent,
+    path: "",
+    pathMatch: "full",
+    redirectTo: "issues",
   },
   {
-    path: "account/create",
-    component: CreateAccountComponent,
-  },
-  {
-    path: "account/create/success",
-    component: SuccessfullyCreatedAccountComponent,
-  },
-  {
-    path: "users",
-    component: UsersComponent,
-  },
-  {
-    path: "issues",
-    component: IssuesPageComponent,
+    path: "",
+    canActivate: [
+      nonLoggingInAuthGuard
+    ],
+    children: [
+      {
+        path: "password/change",
+        component: ChangePasswordPageComponent,
+      },
+      {
+        path: "account/create",
+        component: CreateAccountComponent,
+      },
+      {
+        path: "account/create/success",
+        component: SuccessfullyCreatedAccountComponent,
+        data: {
+          
+        }
+      },
+      {
+        path: "users",
+        component: UsersComponent,
+      },
+      {
+        path: "issues",
+        component: IssuesPageComponent,
+      },
+    ],
   },
   {
     path: "**",

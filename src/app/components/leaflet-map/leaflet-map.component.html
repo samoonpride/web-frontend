@@ -1,0 +1,5 @@
+<div [id]="id" [style]="{ height: height }"></div>
+<div class="flex">
+  <input class="input" id="lat" name="lat" (keyup)="locationChange()" [(ngModel)]="latitude">
+  <input class="input" id="lng" name="lng" (keyup)="locationChange()" [(ngModel)]="longtitude">
+</div>
