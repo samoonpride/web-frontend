@@ -23,7 +23,7 @@ export class IssueCreateModalComponent implements OnInit {
   selectedFiles: File[] = [];
   srcSelectedFiles: string[] = [];
 
-  statuses: string[] = Object.values(Status);
+  statuses: string[] = Object.keys(Status);
 
   location: Location = {
     lat: environment.defaultMapPosition.lat,
@@ -84,15 +84,15 @@ export class IssueCreateModalComponent implements OnInit {
   }
 
   onClickHandle() {
-    const issue: Issue = {
-      issueId: 0,
-      title: "",
-      latitude: this.location.lat,
-      longtitude: this.location.lng,
-      thumbnailPath: ""
-    }
+    // const issue: Issue = {
+    //   issueId: 0,
+    //   title: "",
+    //   latitude: this.location.lat,
+    //   longtitude: this.location.lng,
+    //   thumbnailPath: ""
+    // }
 
-    console.log(issue);
+    // console.log(issue);
 
   }
 

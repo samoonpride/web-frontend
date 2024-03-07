@@ -5,6 +5,7 @@ import { Status } from 'src/app/constants/Status';
 import { Location } from 'src/app/interfaces/Location';
 import { Issue } from 'src/app/interfaces/responses/Issue';
 import { Staff } from 'src/app/interfaces/responses/Staff';
+import { IssueService } from 'src/app/services/issue/issue.service';
 import { StaffService } from 'src/app/services/staff/staff.service';
 import { environment } from 'src/environments/environment';
 
@@ -18,8 +19,10 @@ export class IssueDetailModalComponent implements OnInit {
     issueId: 0,
     title: "",
     latitude: 0,
-    longtitude: 0,
-    thumbnailPath: ""
+    longitude: 0,
+    thumbnailPath: "",
+    assigneeIds: [],
+    status: "IN_CONSIDERATION"
   };
 
   staffs: Staff[] = [];
@@ -32,6 +35,7 @@ export class IssueDetailModalComponent implements OnInit {
   srcSelectedFiles: string[] = [];
 
   statuses: string[] = Object.values(Status);
+  selectedStatus: string = "";
 
   location: Location = {
     lat: environment.defaultMapPosition.lat,
@@ -45,6 +49,27 @@ export class IssueDetailModalComponent implements OnInit {
         return a.username.localeCompare(b.username);
       })
       this.queriedStaffs = this.staffs;
+
+      this.selectedStaffs = [];
+      this.issue.assigneeIds.forEach(assigneeId => {
+        const staff = this.staffs.find((staff) => {
+          return staff.id === assigneeId;
+        });
+        if (staff) {
+          this.selectedStaffs.push(staff);
+        }
+      });
+
+      this.location.lat = this.issue.latitude;
+      this.location.lng = this.issue.longitude;
+
+      this.selectedStatus = this.issue.status;
+
+      if (this.issue.thumbnailPath) {
+        this.srcSelectedFiles.push(environment.thumbnailPathUrl + this.issue.thumbnailPath);
+      }
+
+
     });
 
     initFlowbite();
@@ -53,6 +78,7 @@ export class IssueDetailModalComponent implements OnInit {
 
   constructor(
     private staffService: StaffService,
+    private issueService: IssueService,
   ) { }
 
   staffSearchChange() {
@@ -77,7 +103,7 @@ export class IssueDetailModalComponent implements OnInit {
   }
 
   fileUpload() {
-    document.getElementById("filex")?.click();
+    document.getElementById("file")?.click();
   }
 
   selectedFilesChange(event: EventTarget | null) {
@@ -97,6 +123,30 @@ export class IssueDetailModalComponent implements OnInit {
 
   markerEventHandle(location: Location) {
     this.location = location;
+  }
+
+  onSaveHandle() {
+    const assigneeIds: number[] = [];
+    this.selectedStaffs.forEach(staff => {
+      assigneeIds.push(staff.id);
+    })
+
+    const issue: Issue = {
+      issueId: this.issue.issueId,
+      assigneeIds: assigneeIds,
+      title: this.issue.title,
+      latitude: this.location.lat,
+      longitude: this.location.lng,
+      status: this.selectedStatus,
+      duplicateIssueId: this.issue.duplicateIssueId,
+    }
+
+    this.issueService.editIssues(issue, this.selectedFiles[0]).subscribe({
+      complete: () => {
+        window.location.reload();
+      }
+    });
+
   }
 
 

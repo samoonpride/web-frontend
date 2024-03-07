@@ -1,7 +1,10 @@
 export interface Issue {
   issueId: number,
+  duplicateIssueId?: number,
+  assigneeIds: number[],
   title: string,
   latitude: number,
-  longtitude: number,
-  thumbnailPath: string,
+  longitude: number,
+  thumbnailPath?: string,
+  status: string,
 }

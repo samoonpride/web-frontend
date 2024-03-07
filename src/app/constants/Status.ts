@@ -1,8 +1,8 @@
 export enum Status {
-  IN_CONSIDERATION = "In Consideration",
-  IN_PROGRESS = "In Progress",
-  COMPLETED = "Completed",
-  SUSPENDED = "Suspended",
-  DUPLICATED = "Duplicated",
-  SPAM = "Spam",
+  IN_CONSIDERATION = "IN_CONSIDERATION",
+  IN_PROGRESS = "IN_PROGRESS",
+  COMPLETED = "COMPLETED",
+  SUSPENDED = "SUSPENDED",
+  DUPLICATED = "DUPLICATED",
+  SPAM = "SPAM",
 }

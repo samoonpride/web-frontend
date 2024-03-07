@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { Map, Marker, map, marker, tileLayer } from "leaflet";
 import { Location } from "src/app/interfaces/Location";
 import { environment } from "src/environments/environment";
@@ -16,8 +16,8 @@ export class LeafletMapComponent implements AfterViewInit {
 
   @Output() markerEvent = new EventEmitter<Location>();
 
-  private map?: Map;
-  private marker?: Marker;
+  public static map?: Map;
+  public static marker?: Marker;
 
   isDataAvailable: boolean = false;
   id: string = "map";
@@ -31,7 +31,7 @@ export class LeafletMapComponent implements AfterViewInit {
     this.longtitude = longtitude;
 
     try {
-      this.map = map(id, {
+      LeafletMapComponent.map = map(id, {
         center: [this.latitude, this.longtitude],
         zoom: 17
       });
@@ -42,23 +42,23 @@ export class LeafletMapComponent implements AfterViewInit {
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(this.map);
+    }).addTo(LeafletMapComponent.map);
 
     setInterval(() => {
-      this.map?.invalidateSize();
+      LeafletMapComponent.map?.invalidateSize();
     }, 1000);
 
-    this.marker = marker([latitude, longtitude]);
+    LeafletMapComponent.marker = marker([latitude, longtitude]);
     this.markerEvent.emit({
       lat: latitude,
       lng: longtitude
     });
-    this.marker.addTo(this.map);
+    LeafletMapComponent.marker.addTo(LeafletMapComponent.map);
 
-    this.map.addEventListener('click', (e) => {
+    LeafletMapComponent.map.addEventListener('click', (e) => {
       this.latitude = e.latlng.lat;
       this.longtitude = e.latlng.lng;
-      this.marker?.setLatLng(e.latlng);
+      LeafletMapComponent.marker?.setLatLng(e.latlng);
       this.markerEvent.emit({
         lat: e.latlng.lat,
         lng: e.latlng.lng
@@ -67,7 +67,7 @@ export class LeafletMapComponent implements AfterViewInit {
   }
 
   locationChange() {
-    this.marker?.setLatLng([this.latitude, this.longtitude]);
+    LeafletMapComponent.marker?.setLatLng([this.latitude, this.longtitude]);
     this.markerEvent.emit({
       lat: this.latitude,
       lng: this.longtitude
