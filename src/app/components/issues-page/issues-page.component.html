@@ -44,7 +44,7 @@
     <div class="grow">
       <div class="flex">
         <div *ngIf="issue.thumbnailPath" class="border-[1px] border-gray-300 rounded-lg size-16">
-          <img src="{{thumbnailPathUrl + issue.thumbnailPath}}" class="object-cover size-16"/>
+          <img src="{{thumbnailPathUrl + '/' +issue.thumbnailPath}}" class="object-cover size-16"/>
         </div>
         <div class="grow"></div>
         <div *ngIf="issue.assigneeIds.length !== 0">
