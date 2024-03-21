@@ -7,11 +7,26 @@ import { SuccessfullyCreatedAccountComponent } from './components/successfully-c
 import { UsersComponent } from './components/users/users.component';
 import { IssuesPageComponent } from './components/issues-page/issues-page.component';
 import { LoggedInAuthGuard, nonLoggingInAuthGuard } from './guards/auth/auth.guard';
+import { LogsComponent } from './components/logs/logs.component';
 
 const routes: Routes = [
   {
     path: "login",
     component: LoginPageComponent,
+    canActivate: [
+      LoggedInAuthGuard
+    ]
+  },
+  {
+    path: "register",
+    component: CreateAccountComponent,
+    canActivate: [
+      LoggedInAuthGuard
+    ]
+  },
+  {
+    path: "register/success",
+    component: SuccessfullyCreatedAccountComponent,
     canActivate: [
       LoggedInAuthGuard
     ]
@@ -32,23 +47,16 @@ const routes: Routes = [
         component: ChangePasswordPageComponent,
       },
       {
-        path: "account/create",
-        component: CreateAccountComponent,
-      },
-      {
-        path: "account/create/success",
-        component: SuccessfullyCreatedAccountComponent,
-        data: {
-          
-        }
-      },
-      {
         path: "users",
         component: UsersComponent,
       },
       {
         path: "issues",
         component: IssuesPageComponent,
+      },
+      {
+        path: "logs",
+        component: LogsComponent,
       },
     ],
   },

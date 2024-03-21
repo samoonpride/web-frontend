@@ -26,6 +26,9 @@
 
     <div>
       <button type="submit" class="primary-button">Sign in</button>
+      <div class="text-sm helper-text">
+        You can <a href="/register" class="a">register</a> to request for your account.
+      </div>
     </div>
 
     <p [hidden]="isAlertHidden" class="alert">
@@ -35,7 +38,7 @@
 
   <div class="mt-4 helper-border">
     <p class="helper-text">
-      This system requires operator to create a new account for user. If you do not have an account, please contact your operator.
+      This system requires operator to review new accounts before usage.
     </p>
   </div>
 

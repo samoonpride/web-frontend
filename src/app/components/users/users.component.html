@@ -12,8 +12,6 @@
         </div>
         <input type="text" [(ngModel)]="userSearch" (keyup)="onUserSearchChange()" id="table-search-users" class="px-12 input" placeholder="Search for users">
     </div>
-    <div class="grow"></div>
-    <button class="uppercase w-28 primary-button" (click)="onCreateHandle()">create</button>
   </div>
 
   <hr>
@@ -49,9 +47,25 @@
                     {{staff.role}}
                 </td>
                 <td class="px-6 py-4">
-                  <div *ngIf="staff.id !== this.currentStaff?.id">
-                    <a data-modal-target="removeAccountModal" data-modal-show="removeAccountModal" (click)="setSelectedStaff(staff)" class="font-medium text-red-600 hover:underline hover:cursor-pointer">DELETE</a>
+                  <div
+                    *ngIf="
+                      staff.id !== this.currentStaff?.id &&
+                      (this.currentStaff?.role === 'OPERATOR' || this.currentStaff?.role === 'SUPER_OPERATOR') &&
+                      staff.role !== 'SUPER_OPERATOR'
+                    "
+                  >
+                    <div [ngSwitch]="staff.role">
+                      <div *ngSwitchCase="'PENDING'" class="space-x-5">
+                        <a data-modal-target="approveUserModal" data-modal-show="approveUserModal" (click)="setSelectedStaff(staff)" class="font-medium text-green-500 hover:underline hover:cursor-pointer">APPROVE</a>
+                        <a data-modal-target="denyUserModal" data-modal-show="denyUserModal" (click)="setSelectedStaff(staff)" class="font-medium text-red-600 hover:underline hover:cursor-pointer">DENY</a>
+                      </div>
+                      <div *ngSwitchDefault>
+                        <a data-modal-target="removeAccountModal" data-modal-show="removeAccountModal" (click)="setSelectedStaff(staff)" class="font-medium text-red-600 hover:underline hover:cursor-pointer">DELETE</a>
+                      </div>
+                    </div>
                     <app-user-delete-modal [account]="selectedStaff"></app-user-delete-modal>
+                    <app-approve-user-modal [account]="selectedStaff"></app-approve-user-modal>
+                    <app-deny-user-modal [account]="selectedStaff"></app-deny-user-modal>
                   </div>
                 </td>
             </tr>

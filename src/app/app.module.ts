@@ -18,6 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { LeafletMapComponent } from './components/leaflet-map/leaflet-map.component';
 import { UserDeleteModalComponent } from './components/user-delete-modal/user-delete-modal.component';
+import { LogsComponent } from './components/logs/logs.component';
+import { ApproveUserModalComponent } from './components/approve-user-modal/approve-user-modal.component';
+import { DenyUserModalComponent } from './components/deny-user-modal/deny-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { UserDeleteModalComponent } from './components/user-delete-modal/user-de
     IssueCreateModalComponent,
     LeafletMapComponent,
     UserDeleteModalComponent,
+    LogsComponent,
+    ApproveUserModalComponent,
+    DenyUserModalComponent,
   ],
   imports: [
     BrowserModule,

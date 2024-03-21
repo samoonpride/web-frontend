@@ -13,6 +13,8 @@ import { Md5 } from 'ts-md5';
 export class CreateAccountComponent {
 
   username: string = "";
+  password: string = "";
+  confirmPassword: string = "";
 
   isAlertHidden: boolean = true;
   alert: string = "";
@@ -37,24 +39,29 @@ export class CreateAccountComponent {
       return;
     }
 
-    const randomizedPassword = Math.random().toString(36).substring(0, 8);
-    const hashedPassword = Md5.hashStr(randomizedPassword);
+    if (this.password.length < 8) {
+      this.alert = "Password must be longer than 8 characters.";
+      this.isAlertHidden = false;
+      return;
+    }
+
+    if (this.password !== this.confirmPassword) {
+      this.alert = "Password does not match. Please try again."
+      this.isAlertHidden = false;
+      return;
+    }
+
+    const hashedPassword = Md5.hashStr(this.password);
 
     const staffCreateDto: StaffCreateDto = {
       username: this.username,
       password: hashedPassword,
-      role: StaffRole.STAFF,
-    }
-
-    const tempCreatedStaff = {
-      username: this.username,
-      password: randomizedPassword,
     }
 
     this.staffService.createStaff(staffCreateDto).subscribe({
       complete: () => {
-        this.staffService.setTempCreatedStaff(tempCreatedStaff);
-        this.router.navigateByUrl("/account/create/success");
+        this.staffService.setTempCreatedStaff(staffCreateDto);
+        this.router.navigateByUrl("/register/success");
       },
       error: () => {
         this.alert = "An unknown error occurred. Please try again.";
